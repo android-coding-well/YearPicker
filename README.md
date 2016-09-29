@@ -5,6 +5,7 @@
 
 
 示例（参考demo）：
+ ` 
  <com.hwj.juneng.yp.YearPicker
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/yp_year"
@@ -14,10 +15,10 @@
         app:yp_selectedColor="#1273f0"
         app:yp_pointerColor="#00ffff"
         />
-
+ ` 
 
 为了更好地自定义，开放了如下的自定义属性，可根据实际要求设置：
-
+ ` 
 <declare-styleable name="YearPicker">
         <!--选中年份的颜色-->
         <attr name="yp_selectedColor" format="color"></attr>
@@ -56,7 +57,7 @@
             <enum name="bottom" value="1" />
         </attr>
     </declare-styleable>
-
+ ` 
 
 
 直接引用此控件的步骤：
