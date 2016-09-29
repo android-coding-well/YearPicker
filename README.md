@@ -4,9 +4,9 @@
 ![image](https://github.com/huweijian5/YearPicker/blob/master/screenshots/device-2016-09-29-221318.png)
 
 
-示例（参考demo）：
- ` 
- <com.hwj.juneng.yp.YearPicker
+###示例（参考demo）
+ 
+ ``` <com.hwj.juneng.yp.YearPicker
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/yp_year"
         android:layout_centerHorizontal="true"
@@ -15,11 +15,11 @@
         app:yp_selectedColor="#1273f0"
         app:yp_pointerColor="#00ffff"
         />
- ` 
+ ```
 
-为了更好地自定义，开放了如下的自定义属性，可根据实际要求设置：
- ` 
-<declare-styleable name="YearPicker">
+###为了更好地自定义，开放了如下的自定义属性，可根据实际要求设置
+ 
+ ```<declare-styleable name="YearPicker">
         <!--选中年份的颜色-->
         <attr name="yp_selectedColor" format="color"></attr>
         <!--选中年份文字的大小-->
@@ -57,10 +57,10 @@
             <enum name="bottom" value="1" />
         </attr>
     </declare-styleable>
- ` 
+ ``` 
 
 
-直接引用此控件的步骤：
+###直接引用此控件的步骤
 
 Step 1.Add it in your root build.gradle at the end of repositories:
 
