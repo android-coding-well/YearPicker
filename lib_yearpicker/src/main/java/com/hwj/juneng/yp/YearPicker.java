@@ -39,7 +39,7 @@ public class YearPicker extends View {
     private int pointerColor = 0xff0000ff;//指针颜色
     private boolean pointerVisibility = true;//指针颜色
     private float pointerHeightScale = 0.2f;//指针高度占总高度的比例
-    private float pointerwidthScale = 0.1f;//指针宽度占总宽度的比例
+    private float pointerWidthScale = 0.1f;//指针宽度占总宽度的比例
 
     private int padding = dp2px(15);//上下间距
     private int currentYear = Calendar.getInstance().get(Calendar.YEAR);//放中间
@@ -82,7 +82,7 @@ public class YearPicker extends View {
         bgColor = ta.getColor(R.styleable.YearPicker_yp_bgColor, bgColor);
         pointerColor = ta.getColor(R.styleable.YearPicker_yp_pointerColor, pointerColor);
         pointerHeightScale = ta.getFloat(R.styleable.YearPicker_yp_pointerHeightScale, pointerHeightScale);
-        pointerwidthScale = ta.getFloat(R.styleable.YearPicker_yp_pointerwidthScale, pointerwidthScale);
+        pointerWidthScale = ta.getFloat(R.styleable.YearPicker_yp_pointerwidthScale, pointerWidthScale);
         pointerVisibility = ta.getInt(R.styleable.YearPicker_yp_pointerVisibility, 1) == 1 ? true : false;
         padding = (int) ta.getDimension(R.styleable.YearPicker_yp_padding, padding);
         currentYear = ta.getInt(R.styleable.YearPicker_yp_defaultYear, currentYear);
@@ -103,8 +103,12 @@ public class YearPicker extends View {
         minWidth = paint.measureText(currentYear + "") * 3 + yearGap * 4;
     }
 
+    /**
+     * 设置年份选择监听器
+     * @param listener
+     */
     public void setOnItemSelectedListener(OnItemSelectedListener listener) {
-        this.onItemSelectedListener = listener;
+        this.onItemSelectedListener= listener;
     }
 
     public void setSelectedColor(@ColorInt int selectedColor) {
@@ -112,26 +116,43 @@ public class YearPicker extends View {
         invalidate();
     }
 
+    /**
+     *  设置选中年份的大小
+    * @param selectedSize
+     */
     public void setSelectedSize(int selectedSize) {
         this.selectedSize = selectedSize;
         invalidate();
     }
 
+    /**
+     *  设置未选中年份的透明度
+     * @param unselectedAlpha
+     */
     public void setUnselectedAlpha(@IntRange(from = 0, to = 255) int unselectedAlpha) {
         this.unselectedAlpha = unselectedAlpha;
         invalidate();
     }
 
+    /**
+     * 设置未选中年份的大小
+     * @param unselectedSize
+     */
     public void setUnselectedSize(int unselectedSize) {
         this.unselectedSize = unselectedSize;
         invalidate();
     }
+
 
     public void setBgColor(@ColorInt int bgColor) {
         this.bgColor = bgColor;
         invalidate();
     }
 
+    /**
+     * 设置指针的颜色
+     * @param pointerColor
+     */
     public void setPointerColor(@ColorInt int pointerColor) {
         this.pointerColor = pointerColor;
         invalidate();
@@ -142,13 +163,21 @@ public class YearPicker extends View {
         invalidate();
     }
 
+    /**
+     * 设置指针高度所占的比例
+     * @param pointerHeightScale
+     */
     public void setPointerHeightScale(@FloatRange(from = 0, to = 1) float pointerHeightScale) {
         this.pointerHeightScale = pointerHeightScale;
         invalidate();
     }
 
-    public void setPointerwidthScale(@FloatRange(from = 0, to = 1) float pointerwidthScale) {
-        this.pointerwidthScale = pointerwidthScale;
+    /**
+     * 设置指针宽度所占的比例
+     * @param pointerWidthScale
+     */
+    public void setPointerWidthScale(@FloatRange(from = 0, to = 1) float pointerWidthScale) {
+        this.pointerWidthScale = pointerWidthScale;
         invalidate();
     }
 
@@ -185,6 +214,10 @@ public class YearPicker extends View {
         }
     }
 
+    /**
+     * 设置对齐模式
+     * @param alignMode
+     */
     public void setAlignMode(@AlignMode int alignMode) {
         this.alignMode = alignMode;
         invalidate();
@@ -235,7 +268,7 @@ public class YearPicker extends View {
             paint.setColor(pointerColor);
             Path path = new Path();
             float h = height * (1 - pointerHeightScale);
-            float w = width * pointerwidthScale / 2.0f;
+            float w = width * pointerWidthScale / 2.0f;
             path.moveTo(width / 2, h);// 此点为多边形的起点
             path.lineTo(width / 2 - w, height);
             path.lineTo(width / 2 + w, height);
